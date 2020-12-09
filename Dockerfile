@@ -10,4 +10,4 @@ RUN chown admin:admin -R /home/admin && \
 
 #Generate New host keys
 RUN ssh-keygen -A
-
+CMD /usr/sbin/sshd -D
