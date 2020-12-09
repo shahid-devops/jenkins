@@ -19,3 +19,10 @@ RUN yum -y install epel-release && \
     pip3 install awscli
 
 CMD /usr/sbin/sshd -D
+
+#Below to create jenkins image with ansible installed.
+FROM jenkins/jenkins
+USER root
+RUN apt-get update && apt-get install python3-pip -y && \
+    pip3 install ansible --upgrade
+USER jenkins
