@@ -4,7 +4,7 @@ RUN useradd admin && \
     echo "1234" | passwd admin --stdin && \
     mkdir /home/admin/.ssh && \
     chmod 700 /home/admin/.ssh
-COPY admin.pub /home/admin/.ssh/authorized_keys
+COPY admin.key.pub /home/admin/.ssh/authorized_keys
 RUN chown admin:admin -R /home/admin && \
     chmod 400 /home/admin/.ssh/authorized_keys
 
