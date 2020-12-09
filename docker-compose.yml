@@ -9,5 +9,12 @@ services:
       - $PWD/jenkins_home:/var/jenkins_home
     networks:
       - net
+  host_server:
+    container_name: remote-host
+    image: remote-host
+    build:
+      context: centos7
+    network:
+      - net
 networks:
   net:
