@@ -10,4 +10,12 @@ RUN chown admin:admin -R /home/admin && \
 
 #Generate New host keys
 RUN ssh-keygen -A
+
+#Install Mysql client and aws client on host-server which uses this docker file
+RUN yum -y install Mysql
+RUN yum -y install epel-release && \
+    yum -y install python3-pip && \
+    pip3 install --upgrade pip && \
+    pip3 install awscli
+
 CMD /usr/sbin/sshd -D
